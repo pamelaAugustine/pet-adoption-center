@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for Pet Adoption Center */
+@layer components {
+  .pet-card {
+    @apply bg-white rounded-lg shadow-md p-4 transition-transform hover:scale-105 cursor-pointer;
+  }
+  .modal-card {
+    /* override hover:scale on modal */
+    @apply hover:scale-100;
+  }
+  .species-filter-button {
+    @apply px-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .species-filter-button.active {
+    @apply bg-blue-500 text-white;
+  }
+
+  .species-filter-button:not(.active) {
+    @apply bg-gray-200 hover:bg-gray-300;
+  }
+
+  .adoption-form input,
+  .adoption-form textarea {
+    @apply w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+  }
+
+  .adoption-form label {
+    @apply block text-sm font-medium text-gray-700 mb-1;
+  }
+
+  .submit-button {
+    @apply w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 
+           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  }
+
+  .power-meter {
+    @apply flex items-center gap-2 mt-2;
+  }
+
+  .power-level {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .status-badge {
+    @apply px-2 py-1 rounded-full text-sm font-medium;
+  }
+
+  .status-badge.available {
+    @apply bg-green-100 text-green-800;
+  }
+
+  .status-badge.adopted {
+    @apply bg-red-100 text-red-800;
+  }
+
+  .app-title {
+    @apply text-xl font-bold mx-auto w-fit p-2;
+  }
+
+  .app-header {
+    @apply bg-white bg-opacity-50 py-4;
+  }
+
+  .pet-gallery {
+    @apply mt-4;
+  }
+
+  .decode-description {
+    @apply bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 my-4; 
+  }
+
+  /* Layout */
+  .adoption-center {
+    @apply max-w-4xl mx-auto;
+  }
+
+  .species-filter-buttons {
+    @apply flex justify-center gap-4 mb-4 flex-wrap;
+  }
+
+  .species-filter-button {
+    @apply min-w-[100px];
+  }
+
+  .form-title {
+    @apply text-xl font-bold mb-4;
+  }
+    /* Modal Styling */
+  .modal-overlay {
+    @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center;
+  }
+
+  .modal-content {
+    @apply bg-white p-5 rounded-lg relative max-w-lg w-full;
+  }
+
+  .modal-close {
+    @apply absolute top-2 right-2 cursor-pointer;
+  }
+}
+
+/* Animation for power meter */
+@keyframes powerPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.power-pulse {
+  animation: powerPulse 2s infinite;
+}
+
+/* Responsive grid layouts */
+.pet-gallery-grid {
+  @apply grid grid-cols-1 gap-4 px-2;
+}
+
+@media (min-width: 640px) {
+  .pet-gallery-grid {
+    @apply grid grid-cols-2 gap-4;
+  }
+  .app-title {
+    @apply text-3xl font-bold mx-auto w-fit p-2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pet-gallery-grid {
+    @apply grid-cols-3;
+  }
+}

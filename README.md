@@ -77,7 +77,7 @@ src/
 
 ## 📸 Preview
 
-*(Include a screenshot or GIF of the app UI here)*
+![App Screenshot](./screenshot.png)
 
 ---
 
